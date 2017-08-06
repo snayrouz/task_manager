@@ -8,7 +8,7 @@ class TaskManagerApp < Sinatra::Base
   end
 
   get '/tasks' do
-    @tasks = Task.all 
+    @tasks = Task.all
     erb :index
   end
 
@@ -20,6 +20,11 @@ class TaskManagerApp < Sinatra::Base
     task = Task.new(params[:task])
     task.save
     redirect '/tasks'
+  end
+
+  get '/tasks/:id' do
+    @task = Task.find(params[:id])
+    erb :show
   end
 
 end

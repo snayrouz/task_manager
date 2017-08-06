@@ -23,4 +23,11 @@ class Task
     end
   end
 
+  def self.find(id)
+    database = SQLite3::Database.new('db/task_manager_development.db')
+    database.results_as_hash = true
+    task = database.execute("SELECT * FROM tasks WHERE id = ?", id.to_i).first
+    Task.new(task)
+  end
+
 end
