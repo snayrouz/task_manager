@@ -1,7 +1,7 @@
 require 'sqlite3'
 
 class Task
-  attr_reader :title, :description, :id
+  attr_reader :title, :description, :id, :location
 
   def initialize(task_params)
     @description = task_params["description"]

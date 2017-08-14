@@ -1,6 +1,8 @@
 <h1>All Tasks</h1>
+  <h2> You are in <%= @location %></h2>
 
 <% @tasks.each do |task| %>
   <h3><a href="/tasks/<%= task.id %>"<%= task.title %></a></h3>
+
   <p><%= task.description %></p>
 <% end %>
